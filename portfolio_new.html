@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhishek Chauhan — AI/ML Engineer & Data Analyst</title>
+  
+  <!-- CDN Dependencies -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;800;900&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind Configuration matching Stitch Theme -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface": "#dfe1f5",
+            "glass-border-light": "rgba(0, 0, 0, 0.08)",
+            "primary-container": "#6be7ff",
+            "secondary-container": "#c90094",
+            "primary": "#dbf8ff",
+            "glass-border-dark": "rgba(255, 255, 255, 0.12)",
+            "outline-variant": "#3d494c",
+            "error": "#ffb4ab",
+            "bg-light": "#f8fafc",
+            "primary-fixed": "#a3eeff",
+            "text-primary-dark": "#e8f5ff",
+            "tertiary-container": "#d9d1ff",
+            "on-background": "#dfe1f5",
+            "on-tertiary-container": "#5b3dde",
+            "error-container": "#93000a",
+            "accent-pink": "#ff46c1",
+            "tertiary": "#f6f1ff",
+            "inverse-primary": "#006877",
+            "secondary": "#ffaed9",
+            "surface-dim": "#0f1320",
+            "on-primary-container": "#006675",
+            "accent-violet": "#7b61ff",
+            "outline": "#869396",
+            "background": "#0f1320",
+            "inverse-on-surface": "#2c303e",
+            "text-primary-light": "#0f172a",
+            "text-muted-light": "#64748b",
+            "surface-variant": "#313443",
+            "surface-container": "#1c1f2d",
+            "surface-bright": "#353847",
+            "surface-container-lowest": "#0a0e1b",
+            "bg-dark": "#060916",
+            "surface": "#0f1320",
+            "surface-container-low": "#181b29",
+            "on-tertiary": "#2e009c",
+            "inverse-surface": "#dfe1f5",
+            "on-secondary-container": "#ffe6f0",
+            "accent-cyan": "#6be7ff",
+            "on-primary": "#00363e",
+            "text-muted-dark": "#9fb2ca",
+            "surface-container-high": "#262938",
+            "surface-tint": "#58d7ee",
+            "on-secondary": "#610046",
+            "on-surface-variant": "#bcc9cc",
+            "surface-container-highest": "#313443"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "card": "28px",
+            "full": "9999px"
+          },
+          spacing: {
+            "card-padding": "28px",
+            "nav-padding-x": "40px",
+            "base": "4px",
+            "container-max": "1240px",
+            "nav-padding-y": "14px",
+            "grid-gutter": "28px",
+            "section-gap-mobile": "64px",
+            "section-gap-desktop": "120px"
+          },
+          fontFamily: {
+            "h1": ["Hanken Grotesk"],
+            "h2": ["Hanken Grotesk"],
+            "card-title": ["Hanken Grotesk"],
+            "hero-display": ["Hanken Grotesk"],
+            "hero-display-mobile": ["Hanken Grotesk"],
+            "stat-value": ["Hanken Grotesk"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "eyebrow": ["JetBrains Mono"]
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Core Glassmorphic & Animation Styles -->
+  <style>
+    body {
+      background-color: #060916;
+      color: #dfe1f5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    html.light body {
+      background-color: #f1f5f9;
+      color: #0d1117;
+    }
+    
+    /* Ethereal Neural background glows */
+    .bg-ambient-glows::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 10% 15%, rgba(107, 231, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 90% 85%, rgba(255, 70, 193, 0.06), transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(123, 97, 255, 0.05), transparent 45%);
+      z-index: -2;
+      opacity: 0.85;
+      transition: opacity 0.5s ease;
+    }
+    
+    html.light .bg-ambient-glows::before {
+      background: 
+        radial-gradient(circle at 10% 15%, rgba(107, 231, 255, 0.04), transparent 35%),
+        radial-gradient(circle at 90% 85%, rgba(255, 70, 193, 0.03), transparent 35%),
+        radial-gradient(circle at 50% 50%, rgba(123, 97, 255, 0.02), transparent 50%);
+    }
+
+    /* Floating Glass Cards */
+    .glass-card {
+      background: rgba(15, 19, 32, 0.45);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
+                  background-color 0.4s ease, 
+                  border-color 0.4s ease, 
+                  box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    /* Crystal Glassmorphic theme for light mode navigation and card components */
+    html.light .glass-card {
+      background: rgba(255, 255, 255, 0.42); /* transparent crystal */
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border: 2px solid rgba(123, 97, 255, 0.55); /* darker and thicker for light mode visibility */
+      box-shadow: 0 16px 45px rgba(31, 38, 135, 0.12),
+                  inset 0 0 0 1.5px rgba(255, 255, 255, 0.85); /* crystal refraction bevel reflection */
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-8px);
+      background: rgba(15, 19, 32, 0.6);
+      border-color: rgba(107, 231, 255, 0.3);
+      box-shadow: 0 40px 110px rgba(107, 231, 255, 0.15);
+    }
+    
+    html.light .glass-card:hover {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(123, 97, 255, 0.65); /* darker border on hover in light mode */
+      box-shadow: 0 35px 95px rgba(15, 23, 42, 0.12),
+                  inset 0 0 0 1.5px rgba(255, 255, 255, 0.85);
+    }
+
+    /* Specular Glowing Pill CTAs */
+    .btn-glow-cyan:hover {
+      box-shadow: 0 0 20px rgba(107, 231, 255, 0.4);
+    }
+    .btn-glow-pink:hover {
+      box-shadow: 0 0 20px rgba(255, 70, 193, 0.45);
+    }
+
+    /* Hero Name shifting gradient */
+    .name-gradient {
+      display: inline-block;
+      background: linear-gradient(90deg, #ff46c1 0%, #7b61ff 35%, #6be7ff 70%, #ff46c1 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 6s linear infinite;
+    }
+    @keyframes gradient-shift {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Typing vertical line cursor blinking */
+    .typewriter-cursor {
+      animation: blink 0.75s step-end infinite;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Active navigation indicator */
+    .nav-link-active {
+      color: #6be7ff !important;
+      position: relative;
+    }
+    html.light .nav-link-active {
+      color: #7b61ff !important;
+    }
+    .nav-link-active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 10px;
+      right: 10px;
+      height: 2px;
+      background: linear-gradient(90deg, #6be7ff, #7b61ff);
+      border-radius: 99px;
+      animation: nav-line-glow 0.3s ease forwards;
+    }
+    @keyframes nav-line-glow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    /* Image frames grayscale hover filter */
+    .profile-frame img {
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+    .profile-frame:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.03);
+    }
+
+    /* Customized styled Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060916;
+    }
+    html.light ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 99px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+    html.light ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.15);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(107, 231, 255, 0.3);
+      border-radius: 99px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+    
+    /* Light mode borders - darker for better visibility */
+    html.light .border-slate-200 {
+      border-color: rgba(71, 85, 105, 0.5) !important;
+    }
+    
+    html.light .border-slate-200\\/50 {
+      border-color: rgba(71, 85, 105, 0.6) !important;
+    }
+    
+    /* Light mode tech tag badges - darker borders and text for visibility */
+    html.light span[class*=\"border-slate-300\"] {
+      border-color: rgba(100, 116, 139, 0.9) !important;
+    }
+    
+    /* Light mode text color enhancement for muted text */
+    html.light .text-text-muted-light {
+      color: #334155 !important;
+    }
+    
+    /* 3D perspective flip card styling */
+    .bento-card-perspective {
+      perspective: 1000px;
+    }
+    .bento-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      transform-style: preserve-3d;
+    }
+    .flipped .bento-card-inner {
+      transform: rotateY(180deg);
+    }
+    .bento-card-front, .bento-card-back {
+      position: absolute;
+      inset: 0;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    .bento-card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-ambient-glows font-body-md selection:bg-accent-cyan/30 text-text-primary-light dark:text-text-primary-dark">
+
+  <!-- Connecting Background Particles Canvas -->
+  <canvas class="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] opacity-[0.35] dark:opacity-[0.24]" id="neuralCanvas"></canvas>
+
+  <!-- Top Floating Glass Navigation Island -->
+  <nav class="fixed top-4 left-4 right-4 md:left-8 md:right-8 z-50 h-[72px] glass-card rounded-2xl flex items-center transition-all duration-300">
+    <div class="flex justify-between items-center px-6 md:px-10 max-w-container-max mx-auto w-full h-full">
+      <a class="font-h2 text-xl md:text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan via-accent-violet to-accent-pink" href="#">
+        ABHISHEK CHAUHAN
+      </a>
+      
+      <!-- Desktop Navigation links -->
+      <div class="hidden md:flex gap-8 items-center">
+        <a class="font-eyebrow text-[11px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan transition-colors duration-300 py-2" href="#about">About</a>
+        <a class="font-eyebrow text-[11px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan transition-colors duration-300 py-2" href="#skills">Skills</a>
+        <a class="font-eyebrow text-[11px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan transition-colors duration-300 py-2" href="#projects">Projects</a>
+        <a class="font-eyebrow text-[11px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan transition-colors duration-300 py-2" href="#experience">Experience</a>
+        <a class="font-eyebrow text-[11px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan transition-colors duration-300 py-2" href="#contact">Contact</a>
+        
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleBtn" class="material-symbols-outlined text-accent-violet dark:text-accent-cyan hover:scale-110 active:scale-95 transition-transform" aria-label="Toggle theme">
+          light_mode
+        </button>
+        
+        <a class="px-6 py-2.5 rounded-full bg-gradient-to-r from-accent-cyan to-accent-violet text-[12px] font-bold text-white uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-md hover:shadow-accent-cyan/20" href="https://mail.google.com/mail/?view=cm&fs=1&to=abhishekchauhan65158@gmail.com&su=Hiring%20Inquiry%20%E2%80%94%20AI%2FML%20Engineer%20Role&body=Hi%20Abhishek%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20I%27m%20impressed%20by%20your%20work%20in%20AI%2FML%20engineering.%20I%27d%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ALooking%20forward%20to%20connecting!" target="_blank" rel="noopener">Hire Me</a>
+      </div>
+      
+      <!-- Mobile Navigation Actions -->
+      <div class="flex md:hidden items-center gap-4">
+        <button id="themeToggleBtnMobile" class="material-symbols-outlined text-accent-violet dark:text-accent-cyan" aria-label="Toggle theme">
+          light_mode
+        </button>
+        <button id="menuToggleBtn" class="material-symbols-outlined text-accent-violet dark:text-accent-cyan" aria-label="Open menu">
+          menu
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="absolute top-[80px] left-0 right-0 glass-card rounded-2xl p-6 hidden flex-col gap-4 mx-4 md:hidden border border-slate-200 dark:border-glass-border-dark shadow-2xl">
+      <a class="font-eyebrow text-xs uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan p-3 rounded-lg hover:bg-white/5" href="#about">About</a>
+      <a class="font-eyebrow text-xs uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan p-3 rounded-lg hover:bg-white/5" href="#skills">Skills</a>
+      <a class="font-eyebrow text-xs uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan p-3 rounded-lg hover:bg-white/5" href="#projects">Projects</a>
+      <a class="font-eyebrow text-xs uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan p-3 rounded-lg hover:bg-white/5" href="#experience">Experience</a>
+      <a class="font-eyebrow text-xs uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet dark:hover:text-accent-cyan p-3 rounded-lg hover:bg-white/5" href="#contact">Contact</a>
+      <a class="w-full text-center py-3 rounded-full bg-gradient-to-r from-accent-cyan to-accent-violet font-bold text-white uppercase tracking-widest text-xs" href="https://mail.google.com/mail/?view=cm&fs=1&to=abhishekchauhan65158@gmail.com&su=Hiring%20Inquiry%20%E2%80%94%20AI%2FML%20Engineer%20Role&body=Hi%20Abhishek%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20I%27m%20impressed%20by%20your%20work%20in%20AI%2FML%20engineering.%20I%27d%20love%20to%20discuss%20a%20potential%20opportunity%20with%20you.%0A%0ALooking%20forward%20to%20connecting!" target="_blank" rel="noopener">Hire Me</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section with 2-column Desktop Visuals -->
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-12 px-6 md:px-12 overflow-hidden hero-gradient" id="hero">
+      <div class="z-10 max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Side: Copy, typewriter and stats -->
+        <div class="md:col-span-7 space-y-6 text-left">
+          <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card border-accent-violet/30 dark:border-accent-cyan/30">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-violet dark:bg-accent-cyan opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-violet dark:bg-accent-cyan"></span>
+            </span>
+            <span class="font-eyebrow text-[10px] tracking-widest text-accent-violet dark:text-accent-cyan uppercase">OPEN FOR NEW ROLES • AI & ANALYTICS</span>
+          </div>
+          
+          <h1 class="font-hero-display text-4xl sm:text-5xl lg:text-7xl font-black leading-none tracking-tight text-text-primary-light dark:text-text-primary-dark">
+            Abhishek <br>
+            <span class="name-gradient">Chauhan</span>
+          </h1>
+          
+          <div class="min-h-[2rem] flex items-center">
+            <span class="font-eyebrow text-accent-violet dark:text-accent-cyan text-sm sm:text-base tracking-widest font-bold pr-1 uppercase">⚡ &gt;</span>
+            <p class="font-body-lg text-lg sm:text-xl text-text-muted-light dark:text-text-muted-dark border-r-2 border-accent-violet dark:border-accent-cyan pr-1 typewriter-cursor" id="typewriter"></p>
+          </div>
+          
+          <p class="font-body-lg text-base sm:text-lg text-text-muted-light dark:text-text-muted-dark max-w-xl leading-relaxed">
+            I design and ship production ML systems — models, pipelines, and dashboards that <strong class="text-text-primary-light dark:text-text-primary-dark font-bold">turn data into decisions.</strong> Bridging clean research and scalable engineering deployments.
+          </p>
+          
+          <!-- Stat Chips inside Glass Cards -->
+          <div class="flex flex-wrap gap-4 pt-2">
+            <div class="glass-card px-6 py-4 rounded-2xl flex flex-col justify-center min-w-[110px] text-center border-accent-cyan/10">
+              <span class="font-stat-value text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-pink">10+</span>
+              <span class="font-eyebrow text-[9px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark mt-1">Projects</span>
+            </div>
+            <div class="glass-card px-6 py-4 rounded-2xl flex flex-col justify-center min-w-[110px] text-center border-accent-pink/10">
+              <span class="font-stat-value text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-pink to-accent-violet">2+ Yrs</span>
+              <span class="font-eyebrow text-[9px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark mt-1">Experience</span>
+            </div>
+            <div class="glass-card px-6 py-4 rounded-2xl flex flex-col justify-center min-w-[110px] text-center border-accent-violet/10">
+              <span class="font-stat-value text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-violet to-accent-cyan">5+</span>
+              <span class="font-eyebrow text-[9px] uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark mt-1">Tech Stacks</span>
+            </div>
+          </div>
+          
+          <!-- Actions Call to Action buttons -->
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a class="px-8 py-4 rounded-full bg-gradient-to-r from-accent-pink to-accent-violet font-bold text-sm text-white uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-accent-pink/30 btn-glow-pink" href="#projects">
+              View Projects
+            </a>
+            <a class="px-8 py-4 rounded-full border border-accent-cyan text-accent-violet dark:text-accent-cyan font-bold text-sm uppercase tracking-widest glass-card hover:bg-accent-cyan/5 btn-glow-cyan flex items-center gap-2" href="https://mail.google.com/mail/?view=cm&fs=1&to=abhishekchauhan65158@gmail.com&su=Let%27s%20Work%20Together%20%E2%80%94%20Project%20Inquiry&body=Hi%20Abhishek%2C%0A%0AI%20saw%20your%20portfolio%20and%20would%20love%20to%20connect%20about%20a%20project%20opportunity.%0A%0ABest%20regards" target="_blank" rel="noopener">
+              Email Me <span class="material-symbols-outlined text-sm">mail</span>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right Side: Highly custom Interactive Neural Network Canvas -->
+        <div class="md:col-span-5 flex justify-center items-center">
+          <div class="glass-card p-6 rounded-card border-accent-cyan/15 w-full max-w-[480px] shadow-2xl relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-tr from-accent-cyan/5 via-transparent to-accent-pink/5 opacity-40"></div>
+            <div class="absolute -top-10 -right-10 w-24 h-24 bg-accent-cyan/10 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-accent-pink/10 rounded-full blur-2xl"></div>
+            <canvas id="nnCanvas" width="460" height="380" class="w-full h-auto block relative z-10 filter drop-shadow-[0_0_15px_rgba(107,231,255,0.15)]"></canvas>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="py-section-gap-desktop max-w-container-max mx-auto px-nav-padding-x" id="about">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+        
+        <!-- Left Column: Portrait and Ambient Frame -->
+        <div class="md:col-span-5 relative group flex justify-center">
+          <div class="absolute -inset-4 bg-gradient-to-br from-accent-cyan to-accent-violet opacity-20 blur-2xl group-hover:opacity-40 transition-opacity rounded-card"></div>
+          
+          <!-- PORTRAIT BOX: Swapping your own photo is simple! Place your image file (e.g. profile.jpg) in the project workspace, and change the src="..." value in the <img> tag below. -->
+          <div class="relative rounded-card overflow-hidden glass-card p-3 aspect-square max-w-[400px] w-full profile-frame border-accent-cyan/20">
+            <!-- COMMENT: Replace the URL in src="https://lh3.googleusercontent.com..." below with your local image name, like src="profile.jpg" or src="images/profile.jpg" to showcase your own photo! -->
+            <img id="profilePhoto" alt="Abhishek Chauhan" class="w-full h-full object-cover rounded-[20px] transition-all duration-700 shadow-lg" src="abhishekphoto.png">
+          </div>
+        </div>
+        
+        <!-- Right Column: Detail Content -->
+        <div class="md:col-span-7 space-y-8">
+          <div class="space-y-3">
+            <span class="font-eyebrow text-xs text-accent-pink uppercase tracking-widest">Architecting Intelligence</span>
+            <h2 class="font-h1 text-3xl md:text-4xl font-black text-text-primary-light dark:text-text-primary-dark">Turning Data into <br> <span class="text-accent-violet dark:text-accent-cyan">Production Reality</span></h2>
+          </div>
+          
+          <div class="space-y-4 font-body-md text-text-muted-light dark:text-text-muted-dark leading-relaxed">
+            <p>I'm Abhishek — an AI/ML engineer who turns messy data into production-ready systems. I build ML models, fast pipelines, and insightful dashboards that drive real decisions and deliver measurable impact.</p>
+            <p>My edge is bridging research and deployment: deep learning models, clean REST APIs, and analytics that even non-technical teams can act on.</p>
+          </div>
+          
+          <!-- Competency Badges -->
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-4 py-2 rounded-full border border-accent-violet/30 dark:border-accent-cyan/30 bg-accent-violet/5 dark:bg-accent-cyan/5 text-accent-violet dark:text-accent-cyan font-eyebrow text-[10px] tracking-wider uppercase font-bold hover:bg-accent-cyan/10 transition-colors">🧠 Deep Learning</span>
+            <span class="px-4 py-2 rounded-full border border-accent-pink/30 bg-accent-pink/5 text-accent-pink font-eyebrow text-[10px] tracking-wider uppercase font-bold hover:bg-accent-pink/10 transition-colors">📊 Data Analytics</span>
+            <span class="px-4 py-2 rounded-full border border-accent-violet/35 bg-accent-violet/5 text-accent-violet font-eyebrow text-[10px] tracking-wider uppercase font-bold hover:bg-accent-violet/10 transition-colors">🚀 MLOps</span>
+            <span class="px-4 py-2 rounded-full border border-accent-violet/30 dark:border-accent-cyan/30 bg-accent-violet/5 dark:bg-accent-cyan/5 text-accent-violet dark:text-accent-cyan font-eyebrow text-[10px] tracking-wider uppercase font-bold hover:bg-accent-cyan/10 transition-colors">👁️ Computer Vision</span>
+            <span class="px-4 py-2 rounded-full border border-accent-pink/30 bg-accent-pink/5 text-accent-pink font-eyebrow text-[10px] tracking-wider uppercase font-bold hover:bg-accent-pink/10 transition-colors">🔗 API Design</span>
+            <span class="px-4 py-2 rounded-full border border-accent-violet/35 bg-accent-violet/5 text-accent-violet font-eyebrow text-[10px] tracking-wider uppercase font-bold hover:bg-accent-violet/10 transition-colors">📱 Mobile AI</span>
+          </div>
+          
+          <!-- Highlight Panels -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div class="glass-card p-5 rounded-2xl flex flex-col gap-2 border-accent-cyan/10 hover:border-accent-cyan/30">
+              <span class="material-symbols-outlined text-accent-cyan text-3xl">bolt</span>
+              <h4 class="font-bold text-sm text-text-primary-light dark:text-text-primary-dark">Fast Prototyper</h4>
+              <p class="text-xs text-text-muted-light dark:text-text-muted-dark leading-relaxed">From idea to working demo in days, not weeks.</p>
+            </div>
+            <div class="glass-card p-5 rounded-2xl flex flex-col gap-2 border-accent-pink/10 hover:border-accent-pink/30">
+              <span class="material-symbols-outlined text-accent-pink text-3xl">rocket_launch</span>
+              <h4 class="font-bold text-sm text-text-primary-light dark:text-text-primary-dark">Production Mindset</h4>
+              <p class="text-xs text-text-muted-light dark:text-text-muted-dark leading-relaxed">Clean code, tested pipelines, scalable infra.</p>
+            </div>
+            <div class="glass-card p-5 rounded-2xl flex flex-col gap-2 border-accent-violet/10 hover:border-accent-violet/35">
+              <span class="material-symbols-outlined text-accent-violet text-3xl">architecture</span>
+              <h4 class="font-bold text-sm text-text-primary-light dark:text-text-primary-dark">Data-First Design</h4>
+              <p class="text-xs text-text-muted-light dark:text-text-muted-dark leading-relaxed">Every decision backed by metrics and analysis.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Core Skills Stack Section -->
+    <section class="py-section-gap-desktop bg-surface-container-lowest/15 dark:bg-bg-dark/10" id="skills">
+      <div class="max-w-container-max mx-auto px-nav-padding-x text-center space-y-16">
+        <div class="space-y-4">
+          <span class="font-eyebrow text-xs text-accent-pink uppercase tracking-widest">Stack Engineering</span>
+          <h2 class="font-h2 text-3xl md:text-4xl font-black text-text-primary-light dark:text-text-primary-dark">Core <span class="text-accent-violet dark:text-accent-cyan">Capabilities</span></h2>
+          <p class="text-text-muted-light dark:text-text-muted-dark max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
+            A curated selection of tools, stacks, and frameworks I use to deploy modern intelligent services.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Skill 1 -->
+          <div class="glass-card p-card-padding rounded-card text-left space-y-4 hover:border-accent-cyan/40 hover:shadow-accent-cyan/10">
+            <div class="w-12 h-12 rounded-2xl bg-accent-cyan/10 flex items-center justify-center border border-accent-cyan/25">
+              <span class="material-symbols-outlined text-accent-cyan text-2xl">psychology</span>
+            </div>
+            <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Machine Learning</h3>
+            <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">
+              Model training, evaluation, deployment, and automation using TensorFlow, Keras, and scikit-learn.
+            </p>
+          </div>
+          <!-- Skill 2 -->
+          <div class="glass-card p-card-padding rounded-card text-left space-y-4 hover:border-accent-pink/40 hover:shadow-accent-pink/10">
+            <div class="w-12 h-12 rounded-2xl bg-accent-pink/10 flex items-center justify-center border border-accent-pink/25">
+              <span class="material-symbols-outlined text-accent-pink text-2xl">visibility</span>
+            </div>
+            <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Computer Vision</h3>
+            <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">
+              Image classification, face recognition, and video analytics using OpenCV, transfer learning, and deep models.
+            </p>
+          </div>
+          <!-- Skill 3 -->
+          <div class="glass-card p-card-padding rounded-card text-left space-y-4 hover:border-accent-violet/40 hover:shadow-accent-violet/10">
+            <div class="w-12 h-12 rounded-2xl bg-accent-violet/10 flex items-center justify-center border border-accent-violet/25">
+              <span class="material-symbols-outlined text-accent-violet text-2xl">analytics</span>
+            </div>
+            <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Data Analytics</h3>
+            <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">
+              Data cleaning, ETL, interactive dashboards, and storytelling with Pandas, Plotly, Streamlit, and Power BI.
+            </p>
+          </div>
+          <!-- Skill 4 -->
+          <div class="glass-card p-card-padding rounded-card text-left space-y-4 hover:border-accent-cyan/40 hover:shadow-accent-cyan/10">
+            <div class="w-12 h-12 rounded-2xl bg-accent-cyan/10 flex items-center justify-center border border-accent-cyan/25">
+              <span class="material-symbols-outlined text-accent-cyan text-2xl">dns</span>
+            </div>
+            <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Backend & APIs</h3>
+            <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">
+              Flask and Django services for model serving, custom REST APIs, and modern secure web application integration.
+            </p>
+          </div>
+          <!-- Skill 5 -->
+          <div class="glass-card p-card-padding rounded-card text-left space-y-4 hover:border-accent-pink/40 hover:shadow-accent-pink/10">
+            <div class="w-12 h-12 rounded-2xl bg-accent-pink/10 flex items-center justify-center border border-accent-pink/25">
+              <span class="material-symbols-outlined text-accent-pink text-2xl">devices</span>
+            </div>
+            <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Mobile & Web</h3>
+            <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">
+              Flutter and modern front-end patterns to turn intelligent AI capabilities into polished, interactive user applications.
+            </p>
+          </div>
+          <!-- Skill 6 -->
+          <div class="glass-card p-card-padding rounded-card text-left space-y-4 hover:border-accent-violet/40 hover:shadow-accent-violet/10">
+            <div class="w-12 h-12 rounded-2xl bg-accent-violet/10 flex items-center justify-center border border-accent-violet/25">
+              <span class="material-symbols-outlined text-accent-violet text-2xl">settings_input_component</span>
+            </div>
+            <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">MLOps</h3>
+            <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">
+              Versioned pipelines, deployment readiness, and scalable inference environments for highly robust production systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Bento Grid (7 Projects) -->
+    <section class="py-section-gap-desktop max-w-container-max mx-auto px-nav-padding-x" id="projects">
+      <div class="space-y-4 mb-16 text-left">
+        <span class="font-eyebrow text-xs text-accent-pink uppercase tracking-widest font-bold">Showcase portfolio</span>
+        <h2 class="font-h1 text-3xl md:text-4xl font-black text-text-primary-light dark:text-text-primary-dark">Featured <span class="text-accent-violet dark:text-accent-cyan">Neural Works</span></h2>
+        <p class="text-text-muted-light dark:text-text-muted-dark max-w-xl text-sm sm:text-base leading-relaxed">
+          Projects combining mathematical rigour, architectural design, and production deployment.
+        </p>
+      </div>
+      
+      <!-- Bento Grid container -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- 1. AI Health Friend (Span 8 - Desktop Large featured layout) -->
+        <div class="md:col-span-8 group">
+          <div class="glass-card rounded-card overflow-hidden h-full flex flex-col border-accent-cyan/15 hover:border-accent-cyan/35">
+            <div class="h-60 sm:h-72 overflow-hidden relative">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="AI Health Friend symptom diagnostic model interface" src="aihealthfriend.png">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#f1f5f9]/70 dark:from-surface-dim dark:from-surface-container-lowest via-transparent to-transparent"></div>
+              <div class="absolute top-4 left-4 bg-accent-violet/10 dark:bg-accent-cyan/10 border border-accent-violet/25 dark:border-accent-cyan/35 text-accent-violet dark:text-accent-cyan px-3 py-1 rounded-full font-eyebrow text-[9px] uppercase tracking-widest font-bold">Featured AI Health</div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between items-center">
+          
+                  <h3 class="font-card-title text-xl font-bold text-text-primary-light dark:text-text-primary-dark">AI Health Friend</h3>
+                  <div class="flex gap-4">
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-cyan transition-colors" href="#" target="_blank" rel="noopener" title="GitHub Source Code">code</a>
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-cyan transition-colors" href="#" title="Request Live Demo">open_in_new</a>
+                  </div>
+                </div>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">
+                  Cross-platform intelligence for symptom analysis, model-backed diagnostics, and emergency alert integration. Deploys custom lightweight scoring algorithms connected to a mobile app client.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-200/50 dark:border-white/5">
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-1 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Java</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-1 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Flask</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-1 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Firebase</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-1 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Scikit-learn</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-1 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Mobile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. NeuroSpark (Span 4 - Deep wave background mockup panel) -->
+        <div class="md:col-span-4 group">
+          <div class="glass-card rounded-card overflow-hidden h-full flex flex-col border-accent-pink/15 hover:border-accent-pink/35">
+            <div class="relative h-28 overflow-hidden">
+              <img class="w-full h-full object-cover transition-all duration-700" alt="NeuroSpark brain MRI neural activity mapping" src="neurospark.png">
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">NeuroSpark</h3>
+                  <div class="flex gap-3">
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-pink transition-colors text-xl" href="https://github.com/7830-c/NeuroSpark" target="_blank" rel="noopener">code</a>
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-pink transition-colors text-xl" href="#" target="_blank" rel="noopener">open_in_new</a>
+                  </div>
+                </div>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs leading-relaxed">
+                  Brain MRI classification with convolutional networks and a Django web interface built for automatic screening and medical analytics of scans.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-200/50 dark:border-white/5">
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">TensorFlow</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Keras</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Django</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Bovine Classifier (Span 4 - Farm technology mockup visual) -->
+        <div class="md:col-span-4 group">
+          <div class="glass-card rounded-card overflow-hidden h-full flex flex-col border-accent-violet/15 hover:border-accent-violet/35">
+            <div class="relative h-28 overflow-hidden">
+              <img class="w-full h-full object-cover animate-[pulse_6s_infinite] transition-all duration-700" alt="Bovine agricultural scanner mobile concept" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyn0hOdOvKPH9r3dPkO4Ojw9mZwuwv8I20OLfy_VE6WIhe4g8I_hhgw0wf3TJ36w5DW791p51Cs8rJSIE3NoJIEscwF_3duj-6qE1EPCdi07aix0DJD5fxytrBOoSuKYfvSAwxtcAjDfgLHqF-ypx73pgm6E1Bgtpyjf872l7VqVRccOHWfDlhi8CwOc4RSf79suh84cNWLjePisQ3DCQnEB2upXRcXWzga08l7lo59O7KlW3kp63YFNlmSC6vN3cNo1iIQ3KTZgc">
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Bovine Classifier</h3>
+                  <div class="flex gap-3">
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet transition-colors text-xl" href="https://github.com/7830-c/BovineClassifier" target="_blank" rel="noopener">code</a>
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet transition-colors text-xl" href="https://www.linkedin.com/posts/abhishekchauhan65158_machinelearning-deeplearning-computervision-activity-7427721545369944064-DAmh?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEKjSKABOS_3P_k4BeA6VU-t7PnSCHcktNk" target="_blank" rel="noopener">open_in_new</a>
+                  </div>
+                </div>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs leading-relaxed">
+                  A transfer-learning system for cattle breed identification designed for extreme reliability under agricultural and field conditions.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-200/50 dark:border-white/5">
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Python</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">CV</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Transfer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. LinkShield (Span 4 - Malicious URL detection) -->
+        <div class="md:col-span-4 group">
+          <div class="glass-card rounded-card overflow-hidden h-full flex flex-col border-accent-pink/15 hover:border-accent-pink/35">
+            <div class="relative h-28 overflow-hidden">
+              <img class="w-full h-full object-cover transition-all duration-700" alt="LinkShield secure cybersecurity shield metrics" src="linkShield.png">
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">LinkShield</h3>
+                  <div class="flex gap-3">
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-pink transition-colors text-xl" href="https://github.com/7830-c/LinkShield" target="_blank" rel="noopener">code</a>
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-pink transition-colors text-xl" href="https://link-shield-rosy.vercel.app/" target="_blank" rel="noopener">open_in_new</a>
+                  </div>
+                </div>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs leading-relaxed">
+                  Real-time malicious link detection and protection for web apps using URL feature engineering and lightweight ML scoring.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-200/50 dark:border-white/5">
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Flask</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Scikit-learn</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. UK Music stream Dashboard (Span 4 - Music trends charts) -->
+        <div class="md:col-span-4 group">
+          <div class="glass-card rounded-card overflow-hidden h-full flex flex-col border-accent-cyan/15 hover:border-accent-cyan/35">
+            <div class="relative h-28 overflow-hidden">
+              <img class="w-full h-full object-cover transition-all duration-700" alt="Spotify streaming data analysis levels" src="uktop50.png">
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">UK Top 50 Dashboard</h3>
+                  <div class="flex gap-3">
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-cyan transition-colors text-xl" href="https://github.com/7830-c/United-Kingdom-Top-50-Playlist-Market-Structure-Analysis-Dashbaord" target="_blank" rel="noopener">code</a>
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-cyan transition-colors text-xl" href="https://united-kingdom-top-50-playlist-analysis-dashboard.streamlit.app/" target="_blank" rel="noopener">open_in_new</a>
+                  </div>
+                </div>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs leading-relaxed">
+                  Interactive playlist and streaming structure analysis tracker for UK Top 50 trends with stream data export.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-200/50 dark:border-white/5">
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Streamlit</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">React</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Spotify API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. GuardianLink (Span 6 - Enterprise monitoring) -->
+        <div class="md:col-span-6 group">
+          <div class="glass-card rounded-card overflow-hidden h-full flex flex-col border-accent-violet/15 hover:border-accent-violet/35">
+            <div class="relative h-28 overflow-hidden">
+              <img class="w-full h-full object-cover transition-all duration-700" alt="GuardianLink enterprise domain scan log" src="guardianlink.png">
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">GuardianLink</h3>
+                    <span class="bg-accent-violet/10 text-accent-violet border border-accent-violet/25 font-eyebrow text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider inline-block mt-1">Enterprise</span>
+                  </div>
+                  <div class="flex gap-3">
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet transition-colors text-xl" href="https://github.com/7830-c/GuardianLink" target="_blank" rel="noopener">code</a>
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-violet transition-colors text-xl" href="https://drive.google.com/file/d/1v3l1gNWq7EM9NPOMwJNYSiVUr3Aab5MQ/view?usp=sharing" target="_blank" rel="noopener">open_in_new</a>
+                  </div>
+                </div>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs sm:text-sm leading-relaxed">
+                  An enterprise link monitoring dashboard designed to actively scan for malicious or suspicious domains and automate isolation alerting workflows.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-200/50 dark:border-white/5">
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Node</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Express</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Elastic</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Alerts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Face Recognition Attendance (Span 6 - Biometrics) -->
+        <div class="md:col-span-6 group">
+          <div class="glass-card rounded-card overflow-hidden h-full flex flex-col border-accent-cyan/15 hover:border-accent-cyan/35">
+            <div class="relative h-28 overflow-hidden">
+              <img class="w-full h-full object-cover transition-all duration-700" alt="Face Recognition attendance facial bounding metrics" src="faceAttendace.png">
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Face Recognition Attendance</h3>
+                    <span class="bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/25 font-eyebrow text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider inline-block mt-1">Biometrics</span>
+                  </div>
+                  <div class="flex gap-3">
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-cyan transition-colors text-xl" href="https://github.com/7830-c/FaceRecognitionAttendanceSystem" target="_blank" rel="noopener">code</a>
+                    <a class="material-symbols-outlined text-text-muted-light dark:text-text-muted-dark hover:text-accent-cyan transition-colors text-xl" href="https://www.linkedin.com/posts/abhishekchauhan65158_facerecognition-ai-computervision-activity-7408226001324871680-f1JI?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEKjSKABOS_3P_k4BeA6VU-t7PnSCHcktNk" target="_blank" rel="noopener">open_in_new</a>
+                  </div>
+                </div>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs sm:text-sm leading-relaxed">
+                  Automated facial recognition attendance platform providing real-time scanning, secure logging, SQLite database transactions, and live activity metrics.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-200/50 dark:border-white/5">
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">Python</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">OpenCV</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">ML</span>
+                <span class="text-[9px] font-eyebrow font-bold uppercase tracking-wider px-2.5 py-0.5 bg-slate-200/50 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-text-muted-light dark:text-text-muted-dark">SQLite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section class="py-section-gap-desktop bg-surface-container/10 dark:bg-surface-container/5" id="experience">
+      <div class="max-w-container-max mx-auto px-nav-padding-x">
+        <div class="text-center mb-16 space-y-4">
+          <span class="font-eyebrow text-xs text-accent-pink uppercase tracking-widest font-bold">Journey</span>
+          <h2 class="font-h1 text-3xl md:text-4xl font-black text-text-primary-light dark:text-text-primary-dark">Experience <span class="text-accent-pink">Highlights</span></h2>
+          <p class="text-text-muted-light dark:text-text-muted-dark max-w-xl mx-auto text-sm leading-relaxed">
+            Professional roles, internships, and mentorship paths that built my engineering frameworks.
+          </p>
+        </div>
+        
+        <div class="relative max-w-3xl mx-auto space-y-12">
+          <!-- Central Glowing Timeline Track -->
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-accent-cyan via-accent-violet to-accent-pink opacity-25 dark:opacity-20 transform md:-translate-x-1/2"></div>
+          
+          <!-- Experience 1: SureTrust (MAY 2026 - PRESENT) -->
+          <div class="relative flex flex-col md:flex-row items-stretch group">
+            <div class="hidden md:flex flex-1 justify-end pr-12 text-right items-center">
+              <span class="font-eyebrow text-xs text-accent-cyan tracking-widest uppercase font-bold">MAY 2026 - PRESENT</span>
+            </div>
+            <!-- Glow dot marker -->
+            <div class="absolute left-[7px] md:left-1/2 top-8 w-[18px] h-[18px] rounded-full bg-accent-cyan border-4 border-slate-100 dark:border-bg-dark shadow-[0_0_15px_#6be7ff] transition-transform group-hover:scale-125 z-10 transform md:-translate-x-1/2"></div>
+            
+            <div class="flex-1 pl-10 md:pl-12">
+              <div class="glass-card p-6 rounded-2xl border-accent-cyan/10 hover:border-accent-cyan/35 space-y-2">
+                <span class="md:hidden font-eyebrow text-[10px] text-accent-cyan font-bold tracking-widest">MAY 2026 - PRESENT</span>
+                <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">AI/ML Intern</h3>
+                <h4 class="text-accent-cyan text-xs font-semibold uppercase tracking-wider font-eyebrow">SureTrust</h4>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs sm:text-sm leading-relaxed mt-2">
+                 Working on machine learning models, data pipelines, and AI solutions. Excited to apply skills and gain hands‑on experience in Artificial Intelligence & Machine Learning.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Experience 2: Graphura India (APR 2026 - PRESENT) -->
+          <div class="relative flex flex-col md:flex-row items-stretch group">
+            <div class="hidden md:flex flex-1 justify-end pr-12 text-right items-center md:order-2 md:pl-12 md:pr-0 md:text-left">
+              <span class="font-eyebrow text-xs text-accent-pink tracking-widest uppercase font-bold">APR 2026 - PRESENT</span>
+            </div>
+            <!-- Glow dot marker -->
+            <div class="absolute left-[7px] md:left-1/2 top-8 w-[18px] h-[18px] rounded-full bg-accent-pink border-4 border-slate-100 dark:border-bg-dark shadow-[0_0_15px_#ff46c1] transition-transform group-hover:scale-125 z-10 transform md:-translate-x-1/2"></div>
+            
+            <div class="flex-1 pr-0 md:pr-12 pl-10 md:pl-0 md:order-1 md:text-right">
+              <div class="glass-card p-6 rounded-2xl border-accent-pink/10 hover:border-accent-pink/35 space-y-2">
+                <span class="md:hidden font-eyebrow text-[10px] text-accent-pink font-bold tracking-widest">APR 2026 - PRESENT</span>
+                <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Data Analytics Intern</h3>
+                <h4 class="text-accent-pink text-xs font-semibold uppercase tracking-wider font-eyebrow">Graphura India</h4>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs sm:text-sm leading-relaxed mt-2">
+                  Built an SEO opportunity finder and a resume-matching engine: designed ETL pipelines, trained ranking models, and deployed Flask APIs. Improved matching accuracy and reduced manual triage by ~40%.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Experience 3: AMU Polytechnic (AUG 2023 - DEC 2023) -->
+          <div class="relative flex flex-col md:flex-row items-stretch group">
+            <div class="hidden md:flex flex-1 justify-end pr-12 text-right items-center">
+              <span class="font-eyebrow text-xs text-accent-violet tracking-widest uppercase font-bold">AUG 2023 - DEC 2023</span>
+            </div>
+            <!-- Glow dot marker -->
+            <div class="absolute left-[7px] md:left-1/2 top-8 w-[18px] h-[18px] rounded-full bg-accent-violet border-4 border-slate-100 dark:border-bg-dark shadow-[0_0_15px_#7b61ff] transition-transform group-hover:scale-125 z-10 transform md:-translate-x-1/2"></div>
+            
+            <div class="flex-1 pl-10 md:pl-12">
+              <div class="glass-card p-6 rounded-2xl border-accent-violet/10 hover:border-accent-violet/35 space-y-2">
+                <span class="md:hidden font-eyebrow text-[10px] text-accent-violet font-bold tracking-widest">AUG 2023 - DEC 2023</span>
+                <h3 class="font-card-title text-lg font-bold text-text-primary-light dark:text-text-primary-dark">Technical Mentor & Volunteer</h3>
+                <h4 class="text-accent-violet text-xs font-semibold uppercase tracking-wider font-eyebrow">University Polytechnic, AMU</h4>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-xs sm:text-sm leading-relaxed mt-2">
+                  Led workshops and developed robust curriculum for Python and ML, mentored 30+ students on projects, organised hackathons, and guided capstone teams to production-ready demos.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Panel Section -->
+    <section class="py-section-gap-desktop relative overflow-hidden" id="contact">
+      <div class="max-w-container-max mx-auto px-nav-padding-x">
+        <div class="glass-card p-8 sm:p-12 md:p-16 rounded-card border-accent-cyan/15 relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent-cyan/5 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-accent-pink/5 to-transparent pointer-events-none"></div>
+          
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Side Details -->
+            <div class="lg:col-span-5 space-y-8">
+              <div class="space-y-4">
+                <span class="font-eyebrow text-xs text-accent-pink uppercase tracking-widest font-bold">Get In Touch</span>
+                <h2 class="font-hero-display-mobile text-3xl sm:text-4xl font-black text-text-primary-light dark:text-text-primary-dark">Ready to <span class="text-accent-pink">Collaborate?</span></h2>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm sm:text-base leading-relaxed">
+                  Available for freelance contracts, deep learning pipelines, and full-time AI/ML roles. Click below to connect.
+                </p>
+              </div>
+              
+              <!-- Direct Contact list with Pre-filled template layouts -->
+              <div class="space-y-4 font-body-md text-sm">
+                
+                <a class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-white/5 bg-slate-200/20 dark:bg-white/5 hover:translate-x-2 transition-transform hover:border-accent-cyan/25" href="https://mail.google.com/mail/?view=cm&fs=1&to=abhishekchauhan65158@gmail.com&su=Collaboration%20Opportunity%20%E2%80%94%20AI%2FML%20Project&body=Hi%20Abhishek%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20I%27m%20interested%20in%20discussing%20a%20potential%20collaboration.%0A%0AHere%27s%20a%20brief%20about%20what%20I%27m%20looking%20for%3A%0A%5BDescribe%20your%20project%20or%20role%20here%5D%0A%0ALooking%20forward%20to%20hearing%20from%20you!" target="_blank" rel="noopener">
+                  <span class="material-symbols-outlined text-accent-cyan text-2xl">mail</span>
+                  <div class="text-left">
+                    <strong class="block text-xs font-bold text-text-primary-light dark:text-text-primary-dark">Email Inquiry</strong>
+                    <span class="text-xs text-text-muted-light dark:text-text-muted-dark">abhishekchauhan65158@gmail.com</span>
+                  </div>
+                </a>
+                
+                <a class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-white/5 bg-slate-200/20 dark:bg-white/5 hover:translate-x-2 transition-transform hover:border-accent-pink/25" href="https://www.linkedin.com/in/abhishekchauhan65158" target="_blank" rel="noopener">
+                  <span class="material-symbols-outlined text-accent-pink text-2xl">link</span>
+                  <div class="text-left">
+                    <strong class="block text-xs font-bold text-text-primary-light dark:text-text-primary-dark">LinkedIn</strong>
+                    <span class="text-xs text-text-muted-light dark:text-text-muted-dark">in/abhishekchauhan65158</span>
+                  </div>
+                </a>
+                
+                <a class="flex items-center gap-4 p-4 rounded-xl border border-slate-200 dark:border-white/5 bg-slate-200/20 dark:bg-white/5 hover:translate-x-2 transition-transform hover:border-accent-violet/25" href="https://github.com/7830-c" target="_blank" rel="noopener">
+                  <span class="material-symbols-outlined text-accent-violet text-2xl">code_blocks</span>
+                  <div class="text-left">
+                    <strong class="block text-xs font-bold text-text-primary-light dark:text-text-primary-dark">GitHub Profile</strong>
+                    <span class="text-xs text-on-surface-variant dark:text-text-muted-dark">github.com/7830-c</span>
+                  </div>
+                </a>
+                
+              </div>
+            </div>
+            
+            <!-- Right Side form inputs -->
+            <form class="lg:col-span-7 space-y-6" action="https://formspree.io/f/mykvbqoa" method="POST">
+              <div class="space-y-2">
+                <label class="font-eyebrow text-[10px] text-text-muted-light dark:text-text-muted-dark uppercase tracking-widest">Full Name</label>
+                <input class="w-full bg-transparent border-0 border-b border-slate-300 dark:border-glass-border-dark focus:ring-0 focus:border-accent-cyan transition-all text-text-primary-light dark:text-text-primary-dark placeholder-slate-400 dark:placeholder-text-muted-dark px-0 py-3 text-sm focus:outline-none" placeholder="John Doe" type="text" name="name" required>
+              </div>
+              <div class="space-y-2">
+                <label class="font-eyebrow text-[10px] text-text-muted-light dark:text-text-muted-dark uppercase tracking-widest">Email Address</label>
+                <input class="w-full bg-transparent border-0 border-b border-slate-300 dark:border-glass-border-dark focus:ring-0 focus:border-accent-cyan transition-all text-text-primary-light dark:text-text-primary-dark placeholder-slate-400 dark:placeholder-text-muted-dark px-0 py-3 text-sm focus:outline-none" placeholder="john@example.com" type="email" name="email" required>
+              </div>
+              <div class="space-y-2">
+                <label class="font-eyebrow text-[10px] text-text-muted-light dark:text-text-muted-dark uppercase tracking-widest">Your Message</label>
+                <textarea class="w-full bg-transparent border-0 border-b border-slate-300 dark:border-glass-border-dark focus:ring-0 focus:border-accent-cyan transition-all text-text-primary-light dark:text-text-primary-dark placeholder-slate-400 dark:placeholder-text-muted-dark px-0 py-3 resize-none text-sm focus:outline-none" placeholder="Tell me about your project..." rows="3" name="message" required></textarea>
+              </div>
+              <button class="w-full py-4 rounded-full bg-gradient-to-r from-accent-cyan to-accent-violet text-white font-bold text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-md hover:shadow-accent-cyan/20 btn-glow-cyan" type="submit">
+                Send Message
+              </button>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer block matching Design theme -->
+  <footer class="border-t border-slate-200 dark:border-glass-border-dark mt-12 py-12 relative overflow-hidden bg-surface-container-lowest/15 dark:bg-bg-dark/10">
+    <div class="flex flex-col md:flex-row justify-between items-center px-8 md:px-16 max-w-container-max mx-auto gap-8">
+      <div class="text-center md:text-left space-y-2">
+        <span class="font-h2 text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-cyan to-accent-pink uppercase">ABHISHEK CHAUHAN</span>
+        <p class="font-body-md text-xs text-text-muted-light dark:text-text-muted-dark">© 2026 • Designed with ❤️</p>
+      </div>
+      <div class="flex gap-6 font-eyebrow text-[11px] tracking-wider uppercase font-bold text-text-muted-light dark:text-text-muted-dark">
+        <a class="hover:text-accent-violet dark:hover:text-accent-cyan transition-colors" href="https://github.com/7830-c" target="_blank" rel="noopener">GitHub</a>
+        <a class="hover:text-accent-violet dark:hover:text-accent-cyan transition-colors" href="https://linkedin.com/in/abhishekchauhan65158" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="hover:text-accent-violet dark:hover:text-accent-cyan transition-colors" href="mailto:abhishekchauhan65158@gmail.com" target="_blank" rel="noopener">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Scripts -->
+  <script>
+    // ── Hamburger Menu Navigation Toggle ────────────────────────
+    const menuToggleBtn = document.getElementById('menuToggleBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (menuToggleBtn && mobileMenu) {
+      menuToggleBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('flex');
+          menuToggleBtn.textContent = 'close';
+        } else {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('flex');
+          menuToggleBtn.textContent = 'menu';
+        }
+      });
+      
+      // Close mobile drawer on clicking any navigation anchor
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('flex');
+          menuToggleBtn.textContent = 'menu';
+        });
+      });
+    }
+
+    // ── Active Navigation State Tracking & Offset Scrolling ─────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    function trackActiveSection() {
+      const scrollY = window.pageYOffset;
+      
+      sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 120;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          document.querySelector(`nav a[href*=${sectionId}]`)?.classList.add('nav-link-active');
+        } else {
+          document.querySelector(`nav a[href*=${sectionId}]`)?.classList.remove('nav-link-active');
+        }
+      });
+    }
+    
+    window.addEventListener('scroll', trackActiveSection);
+    
+    // Smooth scrolling transitions with proper header offsets
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href').slice(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          e.preventDefault();
+          const targetOffset = targetSection.offsetTop - 96;
+          window.scrollTo({
+            top: targetOffset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ── Modern Fluid Typewriter implementation ──────────────────
+    const phrases = [
+      'Building Production ML Systems',
+      'Data Science & Analytics Expert',
+      'Deep Learning Solutions Architect',
+      'MLOps & Fast Deployments',
+      'Turning Data Into Decisions'
+    ];
+    let phraseIdx = 0, charIdx = 0, isDeleting = false;
+    const typewriterEl = document.getElementById('typewriter');
+    
+    function typeStep() {
+      if (!typewriterEl) return;
+      const currentPhrase = phrases[phraseIdx];
+      
+      if (!isDeleting) {
+        typewriterEl.textContent = currentPhrase.slice(0, ++charIdx);
+        if (charIdx === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(typeStep, 2500); // Hold time
+          return;
+        }
+      } else {
+        typewriterEl.textContent = currentPhrase.slice(0, --charIdx);
+        if (charIdx === 0) {
+          isDeleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+          setTimeout(typeStep, 450); // Pause before next phrase
+          return;
+        }
+      }
+      setTimeout(typeStep, isDeleting ? 30 : 60);
+    }
+    typeStep();
+
+    // ── Adaptive Dark/Light Mode Theme Engine ───────────────────
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeToggleBtnMobile = document.getElementById('themeToggleBtnMobile');
+    
+    function updateThemeIcons(isLight) {
+      const iconText = isLight ? 'dark_mode' : 'light_mode';
+      if (themeToggleBtn) themeToggleBtn.textContent = iconText;
+      if (themeToggleBtnMobile) themeToggleBtnMobile.textContent = iconText;
+    }
+    
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const isLight = htmlEl.classList.contains('light');
+      
+      if (isLight) {
+        htmlEl.classList.remove('light');
+        htmlEl.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        updateThemeIcons(false);
+      } else {
+        htmlEl.classList.remove('dark');
+        htmlEl.classList.add('light');
+        localStorage.setItem('theme', 'light');
+        updateThemeIcons(true);
+      }
+    }
+    
+    themeToggleBtn?.addEventListener('click', toggleTheme);
+    themeToggleBtnMobile?.addEventListener('click', toggleTheme);
+    
+    // Initial theme set based on preference or system settings
+    const storedPref = localStorage.getItem('theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    
+    if (storedPref === 'light' || (!storedPref && systemPrefersLight)) {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+      updateThemeIcons(true);
+    } else {
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
+      updateThemeIcons(false);
+    }
+
+    // ── High-Fidelity Custom Neural Network drawing loop ──────────
+    (function() {
+      const canvas = document.getElementById('nnCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = 460, H = 380;
+      canvas.width = W; canvas.height = H;
+
+      const layerSizes = [4, 5, 5, 4, 3];
+      const layerX = [58, 152, 252, 352, 432];
+
+      // Setup positions of nodes
+      const nodes = layerSizes.map((n, li) => {
+        const arr = [];
+        const spacing = H / (n + 1);
+        for (let i = 0; i < n; i++) {
+          arr.push({
+            x: layerX[li],
+            y: spacing * (i + 1),
+            r: li === 0 || li === layerSizes.length - 1 ? 9 : 8,
+            layer: li,
+            idx: i,
+            glow: 0,
+            activation: Math.random()
+          });
+        }
+        return arr;
+      });
+
+      // Assemble list of connections
+      const conns = [];
+      for (let l = 0; l < nodes.length - 1; l++) {
+        for (const from of nodes[l]) {
+          for (const to of nodes[l + 1]) {
+            conns.push({
+              from,
+              to,
+              weight: Math.random() * 0.8 + 0.2,
+              pulse: null
+            });
+          }
+        }
+      }
+
+      // Signal Pulses list
+      const pulses = [];
+      function spawnPulse() {
+        const conn = conns[Math.floor(Math.random() * conns.length)];
+        // Adaptive colors based on theme
+        const isLight = document.documentElement.classList.contains('light');
+        const accentCyan = isLight ? '#0284c7' : '#6be7ff';
+        const accentPink = isLight ? '#db2777' : '#ff46c1';
+        const accentViolet = isLight ? '#4f46e5' : '#7b61ff';
+        
+        const colors = [accentCyan, accentPink, accentViolet, '#a78bfa'];
+        pulses.push({
+          conn,
+          t: 0,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          speed: 0.009 + Math.random() * 0.015
+        });
+      }
+      setInterval(spawnPulse, 160);
+
+      let time = 0;
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        
+        const isLight = document.documentElement.classList.contains('light');
+        const accent = isLight ? '#0284c7' : '#6be7ff';
+        const accent2 = isLight ? '#db2777' : '#ff46c1';
+        const purple = isLight ? '#4f46e5' : '#7b61ff';
+
+        // Draw ambient radial gradients behind the network
+        const bg1 = ctx.createRadialGradient(W * 0.15, H * 0.5, 0, W * 0.15, H * 0.5, W * 0.45);
+        bg1.addColorStop(0, isLight ? 'rgba(2, 132, 199, 0.04)' : 'rgba(255, 78, 196, 0.05)');
+        bg1.addColorStop(1, 'transparent');
+        ctx.fillStyle = bg1; ctx.fillRect(0, 0, W, H);
+        
+        const bg2 = ctx.createRadialGradient(W * 0.85, H * 0.4, 0, W * 0.85, H * 0.4, W * 0.35);
+        bg2.addColorStop(0, isLight ? 'rgba(219, 39, 119, 0.04)' : 'rgba(107, 231, 255, 0.05)');
+        bg2.addColorStop(1, 'transparent');
+        ctx.fillStyle = bg2; ctx.fillRect(0, 0, W, H);
+
+        // Draw static connecting lines
+        for (const c of conns) {
+          const alpha = isLight ? 0.08 + c.weight * 0.12 : 0.04 + c.weight * 0.08;
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.strokeStyle = isLight ? '#94a3b8' : '#ffffff';
+          ctx.lineWidth = isLight ? 0.7 : 0.8;
+          ctx.beginPath();
+          ctx.moveTo(c.from.x, c.from.y);
+          ctx.lineTo(c.to.x, c.to.y);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        // Draw glowing active path highlights when pulse is moving
+        for (const p of pulses) {
+          if (p.t > 0.05 && p.t < 0.95) {
+            const c = p.conn;
+            ctx.save();
+            ctx.globalAlpha = Math.sin(p.t * Math.PI) * (isLight ? 0.35 : 0.3);
+            ctx.strokeStyle = p.color;
+            ctx.lineWidth = isLight ? 2.0 : 1.6;
+            if (!isLight) {
+              ctx.shadowColor = p.color;
+              ctx.shadowBlur = 6;
+            }
+            ctx.beginPath();
+            ctx.moveTo(c.from.x, c.from.y);
+            ctx.lineTo(c.to.x, c.to.y);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+
+        // Draw active moving pulse nodes
+        for (const p of pulses) {
+          const { from, to } = p.conn;
+          const px = from.x + (to.x - from.x) * p.t;
+          const py = from.y + (to.y - from.y) * p.t;
+          const alpha = Math.sin(p.t * Math.PI);
+          
+          ctx.save();
+          ctx.globalAlpha = alpha * 0.9;
+          const grad = ctx.createRadialGradient(px, py, 0, px, py, 6);
+          grad.addColorStop(0, p.color);
+          grad.addColorStop(1, 'transparent');
+          ctx.fillStyle = grad;
+          ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI * 2); ctx.fill();
+          
+          ctx.globalAlpha = alpha;
+          ctx.fillStyle = '#fff';
+          if (!isLight) {
+            ctx.shadowColor = p.color;
+            ctx.shadowBlur = 8;
+          }
+          ctx.beginPath(); ctx.arc(px, py, 2, 0, Math.PI * 2); ctx.fill();
+          ctx.restore();
+        }
+
+        // Draw static layers nodes
+        for (const layer of nodes) {
+          for (const n of layer) {
+            const t = time * 0.012 + n.idx * 0.7 + n.layer * 0.4;
+            const pulse = 0.85 + 0.15 * Math.sin(t);
+            const r = n.r * pulse;
+            const isInput = n.layer === 0, isOutput = n.layer === layerSizes.length - 1;
+            const nodeColor = isInput ? accent : isOutput ? accent2 : purple;
+
+            // Ambient breathing node glows
+            ctx.save();
+            ctx.globalAlpha = isLight ? 0.15 + 0.08 * Math.sin(t) : 0.16 + 0.1 * Math.sin(t);
+            const outerGlow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 3.5);
+            outerGlow.addColorStop(0, nodeColor);
+            outerGlow.addColorStop(1, 'transparent');
+            ctx.fillStyle = outerGlow;
+            ctx.beginPath(); ctx.arc(n.x, n.y, r * 3.5, 0, Math.PI * 2); ctx.fill();
+            ctx.restore();
+
+            // Core node bubble
+            const grad = ctx.createRadialGradient(n.x - r * 0.3, n.y - r * 0.3, 0, n.x, n.y, r);
+            grad.addColorStop(0, '#ffffff');
+            grad.addColorStop(0.4, nodeColor);
+            grad.addColorStop(1, nodeColor + '88');
+            ctx.save();
+            if (!isLight) {
+              ctx.shadowColor = nodeColor;
+              ctx.shadowBlur = 12;
+            }
+            ctx.fillStyle = grad;
+            ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2); ctx.fill();
+            ctx.restore();
+
+            // Outer sharp spec ring
+            ctx.save();
+            ctx.globalAlpha = isLight ? 0.35 + 0.15 * Math.sin(t) : 0.35 + 0.15 * Math.sin(t);
+            ctx.strokeStyle = nodeColor;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath(); ctx.arc(n.x, n.y, r + 3, 0, Math.PI * 2); ctx.stroke();
+            ctx.restore();
+          }
+        }
+
+        // Increment times and filter expired pulses
+        for (let i = pulses.length - 1; i >= 0; i--) {
+          pulses[i].t += pulses[i].speed;
+          if (pulses[i].t >= 1) {
+            pulses.splice(i, 1);
+          }
+        }
+
+        time++;
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // ── Connective Canvas Particle Background drawing loop ───────
+    (function() {
+      const bgCanvas = document.getElementById('neuralCanvas');
+      if (!bgCanvas) return;
+      const ctx = bgCanvas.getContext('2d');
+      let particles = [];
+      const particleCount = 75;
+
+      function resize() {
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      class BackgroundNode {
+        constructor() {
+          this.x = Math.random() * bgCanvas.width;
+          this.y = Math.random() * bgCanvas.height;
+          this.vx = (Math.random() - 0.5) * 0.3;
+          this.vy = (Math.random() - 0.5) * 0.3;
+          this.r = Math.random() * 1.5 + 1;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > bgCanvas.width) this.vx *= -1;
+          if (this.y < 0 || this.y > bgCanvas.height) this.vy *= -1;
+        }
+
+        draw(isLight) {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fillStyle = isLight ? 'rgba(79, 70, 229, 0.35)' : 'rgba(107, 231, 255, 0.3)';
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new BackgroundNode());
+        }
+      }
+      init();
+
+      function animate() {
+        ctx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+        const isLight = document.documentElement.classList.contains('light');
+
+        particles.forEach(p => {
+          p.update();
+          p.draw(isLight);
+
+          // Find neighbors and draw links
+          particles.forEach(p2 => {
+            const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+            if (dist < 130) {
+              const alpha = (1 - dist / 130) * (isLight ? 0.18 : 0.15);
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = isLight 
+                ? `rgba(79, 70, 229, ${alpha})` 
+                : `rgba(107, 231, 255, ${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          });
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // ── Interactive 3D Perspective Card Flipping ─────────────────
+    const bentoCards = document.querySelectorAll('.bento-card-perspective');
+    bentoCards.forEach(card => {
+      card.tabIndex = 0;
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.classList.toggle('flipped');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
